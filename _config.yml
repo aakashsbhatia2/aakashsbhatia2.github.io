@@ -1,0 +1,11 @@
+title: Aakash Bhatia
+# email: your-email@example.com
+# description: >-
+  # Simple personal blog built with Jekyll and GitHub Pages.
+# baseurl: ""
+# url: "https://aakashsbhatia2.github.io"
+github_username: aakashsbhatia2
+
+theme: minima
+plugins:
+  - jekyll-feed
