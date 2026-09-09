@@ -2,6 +2,77 @@
 
 A simple Jekyll blog starter for GitHub Pages.
 
+## Quick start (macOS)
+
+Verified on macOS 26 (Tahoe), Apple Silicon.
+
+### 1) Install Homebrew
+
+Skip if `r` already works.
+
+```bash
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+### 2) Install Ruby 3.3
+
+macOS ships Ruby 2.6, which is far too old for this site's dependencies. Install
+Ruby 3.3 — the same version GitHub Pages runs:
+
+```bash
+brew install ruby@3.3
+```
+
+Do **not** use plain `brew install ruby` (currently 4.x). The `github-pages` gem
+cannot resolve its dependency tree on Ruby 4, and instead of failing cleanly
+Bundler silently downgrades everything to decade-old versions, then dies trying
+to compile a native extension.
+
+### 3) Put Ruby 3.3 on your PATH
+
+`ruby@3.3` is keg-only, so Homebrew does not link it for you:
+
+```bash
+echo 'export PATH="/opt/homebrew/opt/ruby@3.3/bin:$PATH"' >> ~/.zshrc
+source ~/.zshrc
+ruby -v   # => ruby 3.3.x
+```
+
+On Intel Macs, replace `/opt/homebrew` with `/usr/local`.
+
+### 4) Install Bundler and dependencies
+
+`Gemfile.lock` was written by Bundler 4.0.8, so install that version rather than
+the one bundled with Ruby:
+
+```bash
+gem install bundler -v 4.0.8
+bundle install
+```
+
+### 5) Run locally
+
+```bash
+bundle exec jekyll serve
+```
+
+Then open:
+
+```text
+http://127.0.0.1:4000
+```
+
+The site rebuilds automatically as you edit. Press `Ctrl + C` to stop.
+
+### Troubleshooting
+
+- **Bundler prints downgrades (`Using colorator 0.1 (was 1.1.0)`) and then a
+  native build fails on `yajl-ruby` or `posix-spawn`.** You are on the wrong
+  Ruby. Run `which ruby`; it must point inside `ruby@3.3`, not `/usr/bin/ruby`.
+- **`GitHub Metadata: No GitHub API authentication could be found.`** Harmless
+  locally — it only affects `site.github.*` fields.
+- **Port 4000 already in use.** Use `bundle exec jekyll serve --port 4001`.
+
 ## Quick start (Linux)
 
 ### 1) Install prerequisites
