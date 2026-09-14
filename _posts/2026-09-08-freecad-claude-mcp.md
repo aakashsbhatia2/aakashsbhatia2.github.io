@@ -9,7 +9,7 @@ I've recently acquired a 3D printer and use [FreeCAD](https://www.freecad.org/) 
 
 **Code:** [GitHub Repo](https://github.com/aakashsbhatia2/claude-freecad-mcp)
 
-It's very straightforward to install, a guide can be found [here](https://github.com/aakashsbhatia2/claude-freecad-mcp/blob/main/INSTALL.md). Once installed, you can:
+It's fairly straightforward to install, a guide can be found [here](https://github.com/aakashsbhatia2/claude-freecad-mcp/blob/main/INSTALL.md). Once installed, you can:
 - Design parts with Claude Code directly in FreeCAD open on your computer
 - Select faces/edges and ask Claude to update them
 - Export in 3MF/STL format
